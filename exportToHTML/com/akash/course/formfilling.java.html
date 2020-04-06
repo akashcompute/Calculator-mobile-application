@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>formfilling.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #ed864a;}
+.s1 { color: #ebebeb;}
+.s2 { color: #ed864a; font-weight: bold;}
+.s3 { color: #54b33e;}
+.s4 { color: #cc7832;}
+</style>
+</head>
+<body bgcolor="#131314">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+formfilling.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.akash.course</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">android.content.Intent</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Button</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android.widget.EditText</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">formfilling </span><span class="s0">extends </span><span class="s1">AppCompatActivity {</span>
+    <span class="s0">private </span><span class="s1">EditText name</span><span class="s2">,</span><span class="s1">subject</span><span class="s2">, </span><span class="s1">message</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Button send</span><span class="s2">;</span>
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s2">;</span>
+        <span class="s1">setContentView(R.layout.activity_form)</span><span class="s2">;</span>
+
+        <span class="s1">name = findViewById(R.id.name)</span><span class="s2">;</span>
+        <span class="s1">subject = findViewById(R.id.subject)</span><span class="s2">;</span>
+        <span class="s1">message = findViewById(R.id.message)</span><span class="s2">;</span>
+        <span class="s1">send = findViewById(R.id.buttonsend)</span><span class="s2">;</span>
+
+        <span class="s1">send.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            @Override
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                String Name = name.getText().toString()<span class="s2">;</span>
+                <span class="s1">String Subject = subject.getText().toString()</span><span class="s2">;</span>
+                <span class="s1">String Message = message.getText().toString()</span><span class="s2">;</span>
+
+                <span class="s1">Intent email=</span><span class="s0">new </span><span class="s1">Intent(Intent.ACTION_SEND)</span><span class="s2">;</span>
+                <span class="s1">email.putExtra(Intent.EXTRA_EMAIL</span><span class="s2">, </span><span class="s0">new </span><span class="s1">String[]{</span><span class="s3">&quot;akashkrcse1@gmail.com&quot;</span><span class="s1">})</span><span class="s2">;</span>
+                <span class="s1">email.putExtra(Intent.EXTRA_SUBJECT</span><span class="s2">, </span><span class="s1">Subject)</span><span class="s2">;</span>
+                <span class="s1">email.putExtra(Intent.EXTRA_TEXT</span><span class="s2">,</span><span class="s1">Name + </span><span class="s3">&quot;</span><span class="s4">\n\n</span><span class="s3">&quot; </span><span class="s1">+ Message)</span><span class="s2">;</span>
+                <span class="s1">email.setType(</span><span class="s3">&quot;message/rfc822&quot;</span><span class="s1">)</span><span class="s2">;</span>
+                <span class="s1">startActivity(Intent.createChooser(email</span><span class="s2">, </span><span class="s3">&quot;Choose an Email Client :&quot;</span><span class="s1">))</span><span class="s2">;</span>
+            <span class="s1">}</span>
+        })<span class="s2">;</span>
+    <span class="s1">}</span>
+}
+</pre>
+</body>
+</html>
