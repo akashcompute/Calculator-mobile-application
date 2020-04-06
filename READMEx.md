@@ -1,2 +1,0 @@
-# Calculator-mobile-application
-It is a simple mathematical calculator android mobile application. In this “exp4j” a Java library which is used to evaluate mathematical expressions using Dijkstra’s Shunting-yard algorithm to translate expressions from infix to postfix notation and calculates the result using a simple Stack algorithm. It has a feedback option where users can give feedback and send it via mail and all the details entered will be automatically extracted from the text fields in the application.
